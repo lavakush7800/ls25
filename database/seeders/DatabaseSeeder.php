@@ -20,7 +20,10 @@ class DatabaseSeeder extends Seeder
     	foreach (range(1,200) as $index) {
             DB::table('students')->insert([
                 'name' => $faker->name($gender),
-                'description' => $faker->description,
+                'email' => $faker->email,
+                'username' => $faker->username,
+                'phone' => $faker->phoneNumber,
+                'dob' => $faker->date($format = 'Y-m-d', $max = 'now')
             ]);
         }
     }
