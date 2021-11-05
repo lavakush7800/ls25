@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('product', [ProductController::class, 'index']);
+Route::post('productShow', [ProductController::class, 'store']);
 
 Route::get('students', [StudentController::class, 'index']);
 
