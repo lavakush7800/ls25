@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\Crud\ProductController;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +19,52 @@ use App\Http\Controllers\Crud\ProductController;
 |
 */
 
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('product', [ProductController::class, 'index']);
-Route::post('productShow', [ProductController::class, 'store']);
+Route::get('/home', function () {
+    echo "This is Home Page";
+});
 
-Route::get('students', [StudentController::class, 'index']);
+Route::get('/about',[AboutController::class,'index']);
 
-Route::get('students/list', [StudentController::class, 'getStudents'])->name('students.list');
+Route::get('/contact',[ContactController::class,'index']);
+
+///Category Route
+Route::get('/category/all',[CategoryController::class,'AllCat'])->name('all.category');
+Route::POST('/category/add',[CategoryController::class,'AddCat'])->name('store.category');
+Route::get('/category/edit/{id}',[CategoryController::class,'Edit']);
+Route::POST('/brand/update/{id}',[CategoryController::class,'Update']);
+Route::get('/softdelete/category/{id}',[CategoryController::class,'SoftDelete']);
+Route::get('/category/restore/{id}',[CategoryController::class,'Restore']);
+Route::get('/pdelete/category/{id}',[CategoryController::class,'Pdelete']);
+
+///Brand Route
+Route::get('/brand/all',[BrandController::class,'AllBrand'])->name('all.brand');
+Route::POST('/brand/add',[BrandController::class,'StoreBrand'])->name('store.brand');
+Route::get('/brand/edit/{id}',[BrandController::class,'Edit']);
+Route::POST('/brand/update/{id}',[BrandController::class,'Update']);
+Route::get('/brand/delete/{id}',[BrandController::class,'Delete']);
+
+
+////Multi Image Route
+Route::get('/multi/image',[BrandController::class,'Multipic'])->name('multi.image');
+Route::POST('/multi/add',[BrandController::class,'StoreImg'])->name('store.image');
+
+
+
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    // $users = User::all();
+    // $users = DB::table('users')->get();
+    return view('admin.index');
+})->name('dashboard');
+
+Route::get('/user/logout',[BrandController::class,'Logout'])->name('user.logout');
