@@ -30,10 +30,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- @php($i = 1) -->
+                            @php($i = 1)
                             @foreach($sliders as $slider)
                             <tr>
-                            <th scope="row">{{ $sliders->firstItem()+$loop->index }}</th>
+                            <th scope="row">{{ $i++ }}</th>
                             <td>{{ $slider->title }}</td>
                             <td>{{ $slider->description }}</td>
                             <td><img src="{{ asset($slider->image) }}" style="height:40px; width:70px;"></td>
