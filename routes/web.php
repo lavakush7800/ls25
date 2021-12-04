@@ -27,7 +27,8 @@ Route::get('/email/verify', function () {
 
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
-    return view('home', compact('brands'));
+    $abouts = DB::table('home_abouts')->first();
+    return view('home', compact('brands', 'abouts'));
 });
 
 Route::get('/home', function () {
@@ -64,6 +65,15 @@ Route::POST('/multi/add',[BrandController::class,'StoreImg'])->name('store.image
 Route::get('/home/slider',[HomeController::class,'HomeSlider'])->name('home.slider');
 Route::get('/add.slider',[HomeController::class,'AddSlider'])->name('add.slider');
 Route::post('/store.slider',[HomeController::class,'StoreSlider'])->name('store.slider');
+
+///Home About All Route
+Route::get('/home/about',[AboutController::class,'HomeAbout'])->name('home.about');
+Route::get('/add/about',[AboutController::class,'AddAbout'])->name('add.about');
+Route::post('/store/about',[AboutController::class,'StoreAbout'])->name('store.about');
+Route::get('about/edit/{id}',[AboutController::class,'EditAbout']);
+Route::post('update/homeabout/{id}',[AboutController::class,'UpdateAbout']);
+Route::get('/about/delete/{id}',[AboutController::class,'DeleteAbout']);
+
 
 
 
