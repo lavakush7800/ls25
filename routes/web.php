@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
@@ -27,7 +28,9 @@ Route::get('/email/verify', function () {
 
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
-    return view('home', compact('brands'));
+    $abouts = DB::table('home_abouts')->first();
+    $images = Multipic::all();
+    return view('home', compact('brands', 'abouts', 'images'));
 });
 
 Route::get('/home', function () {
@@ -70,7 +73,8 @@ Route::get('/home/about',[AboutController::class,'HomeAbout'])->name('home.about
 Route::get('/add/about',[AboutController::class,'AddAbout'])->name('add.about');
 Route::post('/store/about',[AboutController::class,'StoreAbout'])->name('store.about');
 Route::get('about/edit/{id}',[AboutController::class,'EditAbout']);
-Route::get('/about/delete/{id}',[AboutController::class,'Delete']);
+Route::post('update/homeabout/{id}',[AboutController::class,'UpdateAbout']);
+Route::get('/about/delete/{id}',[AboutController::class,'DeleteAbout']);
 
 
 

@@ -186,12 +186,12 @@
                   <footer class="footer mt-auto">
             <div class="copyright bg-white">
               <p>
-                &copy; <span id="copy-year">2019</span> Copyright Sleek Dashboard Bootstrap Template by
+                &copy; <span id="copy-year">2019</span> Copyright LS Dashboard Powered by
                 <a
                   class="text-primary"
-                  href="http://www.iamabdus.com/"
+                  href="http://www.lstechsoftware.com/"
                   target="_blank"
-                  >Abdus</a
+                  >LS Tech Software</a
                 >.
               </p>
             </div>
