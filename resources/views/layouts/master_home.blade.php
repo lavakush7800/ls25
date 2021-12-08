@@ -39,7 +39,6 @@
 
 <body>
     @include('Layouts.body.header')
-    @include('Layouts.body.slider')
 
 
   <main id="main">
