@@ -9,6 +9,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ChangePass;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,19 @@ Route::get('/about/delete/{id}',[AboutController::class,'DeleteAbout']);
 Route::get('/portfolio',[AboutController::class,'Portfolio'])->name('portfolio');
 
 
+////Admin Contact page Route
+Route::get('/admin/contact',[ContactController::class,'AdminContact'])->name('admin.contact');
+Route::get('/admin/add/contact',[ContactController::class,'AdminAddContact'])->name('add.contact');
+Route::post('/admin/store/contact',[ContactController::class,'AdminStoreContact'])->name('store.contact');
+Route::get('/admin/message',[ContactController::class,'AdminMessage'])->name('admin.message');
+Route::get('/message/delete/{id}',[ContactController::class,'MessageDelete']);
+
+////Home Contact page Route
+Route::get('/contact',[ContactController::class,'Contact'])->name('contact');
+Route::post('/contact/form',[ContactController::class,'ContactForm'])->name('contact.form');
+
+
+
 
 
 
@@ -90,3 +104,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/user/logout',[BrandController::class,'Logout'])->name('user.logout');
+
+
+////////Change password and user Profile Route
+Route::get('/user/password',[ChangePass::class,'CPassword'])->name('change.password');
+Route::post('/password/update',[ChangePass::class,'UpdatePassword'])->name('password.update');

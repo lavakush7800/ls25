@@ -78,7 +78,7 @@
 
                 
                   <li  class="has-sub" >
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
+                    <a class="sidenav-item-link" href="ajvascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
                       aria-expanded="false" aria-controls="ui-elements">
                       <i class="mdi mdi-folder-multiple-outline"></i>
                       <span class="nav-text">Contact Page</span> <b class="caret"></b>
@@ -88,13 +88,13 @@
                       <div class="sub-menu">
                         
                         <li  class="active" >
-                            <a class="sidenav-item-link" href="#">
+                            <a class="sidenav-item-link" href="{{ route('admin.contact') }}">
                               <span class="nav-text">Contact Profile</span>
                             </a>
                         </li>
 
                         <li  class="active" >
-                            <a class="sidenav-item-link" href="#">
+                            <a class="sidenav-item-link" href="{{ route('admin.message') }}">
                               <span class="nav-text">Contact Message</span>
                             </a>
                         </li>
