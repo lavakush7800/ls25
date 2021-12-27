@@ -148,17 +148,14 @@
                       </li>
 
                       <li>
-                        <a href="profile.html">
+                        <a href="#">
                           <i class="mdi mdi-account"></i> My Profile
                         </a>
                       </li>
                       <li>
                         <a href="{{ route('change.password') }}">
-                          <i class="mdi mdi-email"></i> Change Password
+                          <i class="mdi mdi-server-security"></i> Change Password
                         </a>
-                      </li>
-                      <li>
-                        <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
                       </li>
                       <li>
                         <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
